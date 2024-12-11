@@ -11,7 +11,7 @@ A python script which can search for directories or files on a website , using t
 
   
 
-- When the script is run , you will see a menu asking you to select the "mode" you want ( esentially whether you want to check for files, directories or both and in what order
+- When the script is run , you will see a menu asking you to select the "mode" you want ( esentially whether you want to check for files, directories or both and in what order).
 - Then , enter the target URL as promted - to test I used " http://testphp.vulnweb.com "
 - Then , enter the desired amount of threads to use - more threads = faster attack, however I RECOMMEND NO MORE THAN 25 OR PACKETS WILL BE DROPPED BY TARGET URL
 - Then , enter the name of the wordlist you want to use - it MUST BE IN THE SAME DIRECTORY AS THE PYTHON SCRIPT
@@ -35,10 +35,20 @@ If you are reciving "ModuleNotFoundError: No module named "X":
    - Linux/MacOS : Open terminal > type command "python3 -m pip install X"
    - Windows : Open cmd > type command "py -m pip install X"
 
-If you are receiving "
+If you are receiving "Error opening FILENAME , is it password protected:
+1) Check that the wordlist is not password protected , and if it is change the permissions for the file , if possible.
+2) Check that the file has not been corrupted
+3) If all else fails , re-download your wordlist
+
+If you experience any other issues with the code , feel free to notify me , and I will try and amend it.
      
 
 
 # How it works
  - The script goes through a wordlist that the user must provide , and organises it in to the appropriate queues.
- - The script then starts multiple threads , in ord
+ - The script then starts multiple threads , in order to increase speed of attack
+ - Each thread will go through the wordlist queue and aquire a word to append to the URL , whether its a file or a directory. Due to the FIFO nature of the queue, multiple threads are able to work on one queue simultaneously , thus increasing the speed of the script.
+ - With the new url ( with the word from the wordlist appended to it) , the thread sends an HTTP request to the new url
+ - If the response to the request is a 200 OK , then the directory or file must exist
+ - If the response to the request is 404 , when we know that the directory doesnt exist
+ - If the response returns another code , it may indicate a problem sending a request or reciving a response , thus further manual testing may have to be done in order to deduce whether the directory / file exists.
