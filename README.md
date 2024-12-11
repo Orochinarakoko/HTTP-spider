@@ -6,8 +6,8 @@ A python script which can search for directories or files on a website , using t
 
 
 - You will need to install the modules "threading" , "queue", and "requests" using pip:
-         - Linux/MacOS : Open terminal > type command "python3 -m pip install X"
-         - Windows : Open cmd > type command "py -m pip install X"
+  Linux/MacOS : Open terminal > type command "python3 -m pip install X"
+  Windows : Open cmd > type command "py -m pip install X"
 
   
 
