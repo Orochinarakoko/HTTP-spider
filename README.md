@@ -3,12 +3,23 @@ A python script which can search for directories or files on a website , using t
 
 
 # How to use
+
+
+- You will need to install the modules "threading" , "queue", and "requests" using pip:
+         - Linux/MacOS : Open terminal > type command "python3 -m pip install X"
+         - Windows : Open cmd > type command "py -m pip install X"
+
+  
+
 - When the script is run , you will see a menu asking you to select the "mode" you want ( esentially whether you want to check for files, directories or both and in what order
-- Then , enter the target URL as promted
+- Then , enter the target URL as promted - to test I used " http://testphp.vulnweb.com "
 - Then , enter the desired amount of threads to use - more threads = faster attack, however I RECOMMEND NO MORE THAN 25 OR PACKETS WILL BE DROPPED BY TARGET URL
 - Then , enter the name of the wordlist you want to use - it MUST BE IN THE SAME DIRECTORY AS THE PYTHON SCRIPT
 - The scipt will carry out the desired scan. After , if you have found any directories , you asked wheter you want to scan found directories for files - enter Y for yes or N for no - YOU WILL NOT BE ABLE TO CARRY OUT THIS SCAN IF YOU HAVE ONLY FOUND FILES
 - If you do not want to scan the direcotries , you can enter no , and if you wan to exit the program , you are then asked as to wheter you want to quit - to do so enter "q"
+- The script will continue to run untill you prompt it to quit.
+
+  
 
 # Troubleshooting 
 
@@ -21,8 +32,10 @@ If you are recieving "ERROR - CANNOT CONNECT TO ___________ - TRY MANUALLY":
 
 If you are reciving "ModuleNotFoundError: No module named "X":
   You need to install the module using pip. :
-   - Linux : Open terminal > type command "pip install X"   OR    "pip3 install X"
-   - Windows : Open cmd > type command "py 
+   - Linux/MacOS : Open terminal > type command "python3 -m pip install X"
+   - Windows : Open cmd > type command "py -m pip install X"
+
+If you are receiving "
      
 
 
